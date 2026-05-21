@@ -1,0 +1,1378 @@
+html {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background-image: url("../assets/backgound.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  font-family: sans-serif;
+  scroll-padding-top: 100px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Navbar styling */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #037bb3;
+  padding: 20px 40px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+.navbar-logo {
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 24px;
+}
+
+.navbar-nav {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+.navbar-nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.navbar-nav a:hover {
+  text-decoration: underline;
+}
+/* === Ikon Profil di Navbar === */
+#profile-icon img {
+  width: 30px;
+  height: 30px;
+}
+
+.navbar-profile-btn {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+
+.navbar-profile-btn:hover {
+  text-decoration: underline;
+  color: white;
+}
+
+/* === Sidebar Profil === */
+
+/* Sidebar profil */
+.profile-sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 280px;
+  height: 100%;
+  box-sizing: border-box;
+  background-color: #03445e;
+  color: #fff;
+  padding: 20px;
+  box-shadow: -4px 0 8px rgba(0, 0, 0, 0.3);
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out;
+  z-index: 999;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  overflow-y: auto;
+}
+
+.profile-sidebar.open {
+  transform: translateX(0);
+}
+
+/* Tombol tutup */
+.profile-sidebar .close-btn {
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* Tombol profil */
+#edit-profile-btn,
+#save-profile-btn {
+  width: 100%;
+  border-radius: 6px;
+  font-weight: 500;
+}
+
+#edit-profile-btn {
+  background-color: transparent;
+  border: 1px solid #ffffffaa;
+  color: #fff;
+}
+
+#edit-profile-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+#save-profile-btn {
+  background-color: #ffffff;
+  color: #03445e;
+  border: none;
+}
+
+#save-profile-btn:hover {
+  background-color: #f1f1f1;
+}
+
+#edit-username-input {
+  background-color: #fff;
+  color: #000;
+}
+
+#username-display {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.sidebar-item {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.sidebar-item:hover {
+  opacity: 0.8;
+}
+
+#logout-btn {
+  font-weight: bold;
+  padding: 10px;
+}
+
+/* Main content styling */
+.main-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent !important;
+  padding-top: 120px;
+  padding-left: 40px;
+  padding-right: 20px;
+}
+
+.role-card {
+  transition: transform 0.2s ease;
+}
+
+.role-card:hover {
+  transform: translateY(-5px);
+}
+
+/* step body */
+
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 13px;
+}
+
+/* Lingkaran default */
+.step .circle {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  line-height: 30px;
+  text-align: center;
+  margin-bottom: 5px;
+  background-color: #f8f9fa;
+  border: 1px solid #ced4da;
+  color: #495057;
+  font-weight: bold;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+/* Label kecil di bawah lingkaran */
+.step small {
+  font-size: 12px;
+  color: #495057;
+  display: block;
+  margin-top: 0;
+}
+
+/* Efek saat step aktif */
+.step.active .circle {
+  background-color: #0d6efd;
+  border-color: #0d6efd;
+  color: #ffffff;
+}
+
+.step.active small {
+  color: #0d6efd;
+  font-weight: 600;
+}
+
+.step.completed .circle {
+  background-color: #28a745;
+  color: white;
+  border: 1px solid #28a745;
+}
+
+.step.completed small {
+  color: #28a745;
+  font-weight: bold;
+}
+
+h3 {
+  font-weight: bold;
+  color: #2c3e50;
+  margin-bottom: 30px;
+  font-size: small;
+  margin-top: 30px;
+}
+
+/*pasien*/
+.pasien-card {
+  border-radius: 16px;
+  background: linear-gradient(to bottom right, #ffffff, #f0f8ff);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  border: 1px solid #dee2e6;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pasien-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+}
+
+button.btn-primary {
+  background-color: #037bb3;
+  border: none;
+  padding: 10px 20px;
+  font-weight: bold;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+button.btn-primary:hover {
+  background-color: #025c85;
+}
+
+/*pembayaran*/
+.pembayaran-card {
+  border-radius: 16px;
+  background: linear-gradient(to bottom right, #ffffff, #e6f7ff);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  border: 1px solid #dee2e6;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pembayaran-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+}
+
+.menu-lainnya {
+  padding: 20px 20px;
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto;
+  backdrop-filter: blur(6px); /* efek blur untuk seluruh section */
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.menu-lainnya h2 {
+  font-weight: bold;
+  color: white;
+  margin-bottom: 30px;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+}
+
+.menu-card {
+  background: white;
+  padding: 50px;
+  width: 100px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  font-weight: 500;
+}
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+}
+
+.menu-grid .card {
+  width: 220px;
+  height: 120px;
+  padding: 20px;
+  border-radius: 12px;
+  font-weight: 500;
+  font-size: 1.1rem;
+  background: rgba(255, 255, 255, 0.15); /* semi-transparan */
+  color: white;
+  backdrop-filter: blur(8px); /* efek blur */
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.menu-grid .card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
+}
+
+h1,
+h2 {
+  color: #333;
+}
+
+@media (max-width: 768px) {
+  .menu-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .menu-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/*hospital*/
+
+/* Layout utama */
+.hospital-container {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+.hospital-title {
+  color: #ffffff;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hospital-subtitle {
+  color: #e0e0e0;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+.hospital-wrapper {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 2rem;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.hospital-shadow {
+  box-shadow: 0 12px 28px rgba(223, 218, 243, 0.1) !important;
+}
+
+.hospital-rounded {
+  border-radius: 20px !important;
+}
+
+/* Kartu rumah sakit */
+.hospital-card {
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 16px;
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.hospital-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.2), 0 0 0 4px rgba(0, 123, 255, 0.1);
+}
+
+/* Isi kartu */
+.hospital-card-title {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #1a1a1a;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+.hospital-card-text {
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  color: #333;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* footer */
+footer {
+  background-color: #037bb3;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  font-size: 1rem;
+  border-top: 3px solid #6e6d6d;
+}
+
+/* dokter */
+.dokter-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.dokter-card {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 1rem;
+  width: 100%;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.dokter-card:hover {
+  background-color: #f0f8ff;
+}
+
+.dokter-card.selected {
+  background-color: #cceeff;
+  border-color: #3399ff;
+}
+
+/* Struktur Layout */
+.contact-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 20px 50px;
+  background-color: #add8f0;
+}
+
+/* Main content area */
+main.contact-section {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 16rem;
+  gap: 2rem;
+}
+
+/* Map */
+.contact-map iframe {
+  width: 700px;
+  height: 600px;
+  border: 0;
+  border-radius: 10px;
+}
+
+/* Contact Details */
+.contact-details {
+  width: 400px;
+  padding: 1.5rem;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Teks dan Warna */
+.contact-title {
+  color: #d81b60;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.contact-subtitle {
+  color: #d81b60;
+  font-size: 18px;
+  margin-top: 20px;
+}
+
+/* Sosial Media */
+.social-links {
+  list-style: none;
+  padding-left: 0;
+}
+
+.social-links li {
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Responsive breakpoint */
+@media (max-width: 768px) {
+  .contact-section {
+    flex-direction: column;
+    padding: 20px 10px;
+  }
+
+  .contact-map,
+  .contact-details {
+    flex: 1 1 100%;
+  }
+
+  .contact-map iframe {
+    min-height: 300px;
+  }
+}
+
+/* About */
+.about-section {
+  padding: 120px 20px;
+  font-family: "Open Sans", sans-serif;
+  background-color: #fdfbf7;
+  color: #333;
+}
+
+.about-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 40px;
+}
+
+.about-text {
+  flex: 1 1 60%;
+}
+
+.about-text h2 {
+  color: #9b2ca5;
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.about-text p {
+  margin-bottom: 15px;
+  line-height: 1.7;
+}
+
+.about-image {
+  flex: 1 1 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-image img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* reward */
+.reward-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  padding: 5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.reward-card {
+  background: #ffffff;
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Panduan */
+.panduan-page .fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.panduan-page .guide-card {
+  max-width: 700px;
+  margin: 0 auto;
+  border-radius: 1rem;
+}
+
+.panduan-page .title-card {
+  max-width: 700px;
+  margin: 0 auto 30px auto;
+  border-radius: 1rem;
+}
+
+.panduan-page .icon-circle {
+  width: 50px;
+  height: 50px;
+  font-size: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  margin-right: 15px;
+}
+
+.panduan-page .bg-pasien {
+  background-color: #0d6efd;
+}
+
+.panduan-page .bg-lab {
+  background-color: #198754;
+}
+
+.panduan-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.panduan-content {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  padding: 100px 2rem 2rem;
+}
+
+/* Fasilitas */
+.fasilitas-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  padding: 6rem 2rem 2rem;
+  background: url("../assets/backgound.jpg") no-repeat center center;
+  background-size: cover;
+}
+
+.fasilitas-container {
+  background-color: #f8f9fa;
+  padding: 2rem;
+  border-radius: 16px;
+  max-width: 700px;
+  width: 100%;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.fasilitas-card {
+  cursor: pointer;
+}
+
+.fasilitas-detail {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease, padding 0.3s ease;
+  padding-top: 0;
+  padding-bottom: 0;
+  color: #444;
+  font-size: 0.95rem;
+  text-align: justify;
+  line-height: 1.6;
+}
+
+.fasilitas-card.active .fasilitas-detail {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+/* Konfirmasi */
+.modal-antrian {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.modal-content-antrian {
+  background: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  max-width: 400px;
+  width: 90%;
+  animation: fadeScaleIn 0.4s ease-out forwards;
+}
+
+.modal-content-antrian img {
+  width: 100%;
+  max-width: 300px;
+  margin: 10px auto;
+  display: block;
+}
+
+/* ==== Kartu Antrian ==== */
+.kartu-antrian-container {
+  width: 280px;
+  margin: auto;
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: "Segoe UI", sans-serif;
+  font-size: 14px;
+  color: #333;
+  text-align: center;
+}
+
+.kartu-antrian-container h4 {
+  margin-bottom: 10px;
+  color: #2c3e50;
+}
+
+.kartu-antrian-container .kode-antrian {
+  font-weight: bold;
+  font-size: 18px;
+  color: #e74c3c;
+}
+
+.kartu-antrian-container img.barcode {
+  width: 160px;
+  height: 50px;
+  margin: 8px auto;
+}
+
+.kartu-antrian-container .info {
+  margin-top: 12px;
+  text-align: left;
+}
+
+.kartu-antrian-container .info p {
+  margin: 4px 0;
+}
+
+@keyframes fadeScaleIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Modern Ayosehat UI */
+:root {
+  --surface: #ffffff;
+  --page: #f6f8fb;
+  --text: #172033;
+  --muted: #64748b;
+  --line: #dbe3ef;
+  --primary: #0b7fab;
+  --primary-strong: #075f82;
+  --accent: #18a999;
+  --success: #1f9d66;
+  --danger: #d44a4a;
+  --warning: #f2b84b;
+  --shadow: 0 10px 28px rgba(15, 23, 42, 0.08);
+  --shadow-soft: 0 4px 16px rgba(15, 23, 42, 0.06);
+  --radius: 8px;
+}
+
+html {
+  background: var(--page);
+}
+
+body {
+  background: var(--page) !important;
+  color: var(--text);
+  font-family: "Inter", "Segoe UI", Arial, sans-serif;
+  letter-spacing: 0;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0 0 auto 0;
+  height: 260px;
+  background: linear-gradient(135deg, rgba(11, 127, 171, 0.12), rgba(24, 169, 153, 0.08));
+  pointer-events: none;
+  z-index: -1;
+}
+
+.navbar {
+  background: rgba(255, 255, 255, 0.94);
+  border-bottom: 1px solid rgba(219, 227, 239, 0.9);
+  box-shadow: 0 6px 20px rgba(15, 23, 42, 0.06);
+  padding: 14px 36px;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.navbar-logo {
+  color: var(--text);
+  font-size: 1.2rem;
+  letter-spacing: 0;
+}
+
+.navbar-logo img {
+  height: 42px !important;
+  width: auto;
+  object-fit: contain;
+}
+
+.navbar-logo span span {
+  color: var(--primary);
+}
+
+.navbar-nav {
+  gap: 8px;
+}
+
+.navbar-nav a {
+  color: var(--text);
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-weight: 600;
+}
+
+.navbar-nav a:hover {
+  color: var(--primary);
+  background: #eaf6fa;
+  text-decoration: none;
+}
+
+.navbar-profile-btn {
+  color: var(--text);
+  border-radius: 8px;
+  padding: 8px 12px !important;
+  font-weight: 700;
+}
+
+.navbar-profile-btn:hover,
+.navbar-profile-btn:focus {
+  color: var(--primary);
+  background: #eaf6fa;
+  text-decoration: none;
+}
+
+.page-shell {
+  padding-bottom: 48px;
+}
+
+.auth-shell {
+  background: var(--page) !important;
+}
+
+.auth-entry-shell {
+  min-height: 100vh;
+  padding: 32px;
+  background:
+    radial-gradient(circle at 12% 18%, rgba(24, 169, 153, 0.16), transparent 32%),
+    linear-gradient(135deg, #eef8fb 0%, #f7fbfc 48%, #eaf6f2 100%) !important;
+}
+
+.auth-entry {
+  width: min(1120px, 100%);
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(360px, 0.72fr);
+  gap: 28px;
+  align-items: stretch;
+}
+
+.auth-entry-register {
+  grid-template-columns: minmax(0, 0.95fr) minmax(360px, 0.78fr);
+}
+
+.auth-brand-panel,
+.auth-card {
+  border-radius: 8px !important;
+}
+
+.auth-brand-panel {
+  min-height: 560px;
+  padding: clamp(28px, 5vw, 56px);
+  color: #fff;
+  background:
+    linear-gradient(135deg, rgba(15, 39, 66, 0.82), rgba(11, 127, 171, 0.76)),
+    url("../assets/backgound.jpg") center/cover no-repeat;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+.auth-brand-mark {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.auth-brand-mark img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 8px;
+  padding: 6px;
+}
+
+.auth-brand-panel h1 {
+  max-width: 680px;
+  margin: 54px 0 16px;
+  color: #fff;
+  font-size: clamp(2rem, 5vw, 3.8rem);
+  line-height: 1.05;
+  font-weight: 800;
+}
+
+.auth-brand-panel p {
+  max-width: 620px;
+  color: rgba(255, 255, 255, 0.86);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.auth-feature-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 34px;
+}
+
+.auth-feature-grid div,
+.auth-step-list div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  color: rgba(255, 255, 255, 0.95);
+  font-weight: 700;
+}
+
+.auth-feature-grid i {
+  width: 24px;
+  text-align: center;
+}
+
+.auth-step-list {
+  display: grid;
+  gap: 12px;
+  margin-top: 34px;
+}
+
+.auth-step-list strong {
+  display: inline-flex;
+  width: 30px;
+  height: 30px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  background: #fff;
+  color: var(--primary);
+}
+
+.auth-card {
+  width: 100%;
+  max-width: none;
+  justify-content: center;
+  border: 1px solid rgba(219, 227, 239, 0.95);
+}
+
+.auth-card h2 {
+  font-size: 1.8rem;
+  font-weight: 800;
+}
+
+.auth-kicker {
+  color: var(--primary);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.auth-shell .card {
+  border: 1px solid var(--line);
+  border-radius: var(--radius) !important;
+  box-shadow: var(--shadow);
+}
+
+.card {
+  border: 1px solid var(--line);
+  border-radius: var(--radius) !important;
+  box-shadow: var(--shadow-soft) !important;
+}
+
+.card:hover {
+  box-shadow: var(--shadow) !important;
+}
+
+.role-card {
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.role-card:hover {
+  transform: translateY(-2px);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--text);
+  letter-spacing: 0;
+}
+
+h3 {
+  font-size: 1.25rem;
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.text-muted {
+  color: var(--muted) !important;
+}
+
+.btn {
+  border-radius: 8px;
+  font-weight: 700;
+  padding: 0.58rem 0.9rem;
+}
+
+.btn-primary,
+button.btn-primary {
+  background: var(--primary);
+  border-color: var(--primary);
+}
+
+.btn-primary:hover,
+button.btn-primary:hover {
+  background: var(--primary-strong);
+  border-color: var(--primary-strong);
+}
+
+.btn-success {
+  background: var(--success);
+  border-color: var(--success);
+}
+
+.btn-danger {
+  background: var(--danger);
+  border-color: var(--danger);
+}
+
+.btn-info {
+  background: #d9f2f7;
+  border-color: #d9f2f7;
+  color: #0d4e62;
+}
+
+.form-control,
+.form-select {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 0.65rem 0.8rem;
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 0.2rem rgba(11, 127, 171, 0.16);
+}
+
+.alert {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.badge {
+  border-radius: 8px;
+  padding: 0.45rem 0.6rem;
+  font-weight: 700;
+}
+
+.table {
+  color: var(--text);
+  margin-bottom: 0;
+}
+
+.table thead th {
+  background: #f1f5f9;
+  color: #334155;
+  border-bottom: 1px solid var(--line);
+  font-size: 0.82rem;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.table td,
+.table th {
+  border-color: var(--line);
+  vertical-align: middle;
+}
+
+.table-striped > tbody > tr:nth-of-type(odd) > * {
+  background-color: #fbfdff;
+}
+
+.admin-sidebar {
+  background: #0f2742 !important;
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 22px !important;
+}
+
+.admin-sidebar h4 {
+  color: #fff;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+.admin-sidebar .nav {
+  gap: 6px;
+}
+
+.admin-sidebar .nav-link {
+  border-radius: 8px;
+  color: rgba(255, 255, 255, 0.84) !important;
+  font-weight: 700;
+  padding: 10px 12px;
+}
+
+.admin-sidebar .nav-link:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff !important;
+}
+
+.admin-sidebar .btn-outline-light {
+  border-color: rgba(255, 255, 255, 0.32);
+}
+
+.admin-sidebar + main {
+  min-height: 100vh;
+  background: var(--page) !important;
+}
+
+.admin-layout {
+  background: var(--page);
+}
+
+.step {
+  min-width: 54px;
+}
+
+.step .circle {
+  width: 34px;
+  height: 34px;
+  line-height: 32px;
+  border-color: var(--line);
+}
+
+.step.active .circle {
+  background-color: var(--primary);
+  border-color: var(--primary);
+}
+
+.step.active small {
+  color: var(--primary);
+}
+
+.step.completed .circle {
+  background-color: var(--success);
+  border-color: var(--success);
+}
+
+.step.completed small {
+  color: var(--success);
+}
+
+.pasien-card,
+.pembayaran-card {
+  background: var(--surface);
+  border-radius: var(--radius);
+}
+
+.hospital-title,
+.hospital-subtitle {
+  color: var(--text);
+  text-shadow: none;
+}
+
+.hospital-wrapper {
+  background: var(--surface) !important;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  backdrop-filter: none;
+}
+
+.hospital-card {
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--line) !important;
+  border-radius: var(--radius) !important;
+  box-shadow: var(--shadow-soft);
+}
+
+.hospital-card-title,
+.hospital-card-text {
+  color: var(--text);
+  text-shadow: none;
+}
+
+.dokter-card {
+  border-color: var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.dokter-card:hover {
+  background: #eef8fb;
+  border-color: var(--primary);
+}
+
+.contact-section,
+main.contact-section {
+  background: var(--page);
+  padding: 120px 32px 48px;
+}
+
+.contact-details,
+.fasilitas-container,
+.reward-card {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-soft);
+}
+
+.about-section {
+  background: var(--page);
+  padding: 120px 24px 48px;
+}
+
+.about-text h2,
+.contact-title,
+.contact-subtitle {
+  color: var(--primary);
+}
+
+.reward-list {
+  padding: 2rem;
+}
+
+.fasilitas-wrapper {
+  background: var(--page);
+}
+
+footer {
+  background: #0f2742;
+  border-top: 0;
+}
+
+@media (max-width: 900px) {
+  .auth-entry,
+  .auth-entry-register {
+    grid-template-columns: 1fr;
+  }
+
+  .auth-brand-panel {
+    min-height: auto;
+  }
+
+  .navbar {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+    padding: 14px 18px;
+  }
+
+  .navbar-nav {
+    flex-wrap: wrap;
+  }
+
+  .page-shell {
+    padding-top: 148px !important;
+  }
+
+  .admin-sidebar {
+    position: relative !important;
+    width: 100% !important;
+    min-height: auto !important;
+  }
+
+  .admin-sidebar + main {
+    min-height: auto;
+  }
+
+  .admin-sidebar.d-flex {
+    display: block !important;
+  }
+
+  .admin-layout {
+    flex-direction: column;
+  }
+
+  .admin-sidebar .nav {
+    margin-bottom: 1rem !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .auth-entry-shell {
+    padding: 18px;
+  }
+
+  .auth-feature-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .auth-brand-panel {
+    padding: 26px;
+  }
+
+  .contact-map iframe {
+    width: 100%;
+    height: 360px;
+  }
+
+  main.contact-section {
+    padding: 150px 16px 32px;
+  }
+}

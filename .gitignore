@@ -1,0 +1,11 @@
+storage/sessions/*
+!storage/sessions/.gitkeep
+
+database/*.db
+
+.env
+*.log
+*.tmp
+
+.DS_Store
+Thumbs.db
